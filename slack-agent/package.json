@@ -2,7 +2,7 @@
   "name": "engineering-hq-slack-agent",
   "version": "1.0.0",
   "description": "Slack agent with read-only connectors (GitHub, Linear, Google Drive) that files change requests for a policy-gated supervisor.",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "private": true,
   "type": "module",
   "main": "src/listener.js",

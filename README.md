@@ -114,4 +114,4 @@ Real installs start from `supervisor/config.example.yaml` and `.env.example`. Bo
 - **Names and specifics.** Every person, agent persona, ticket, path, host and company detail was removed. The agents appear only as roles (`orchestrator`, `slack-agent`, `implementer`, `approver`), and every example is fictional.
 - **The original service layer.** It ran as an HTTP gateway with a database. Here the same rules live in a Python library and CLI that can be read in one sitting.
 
-[MIT license](LICENSE). I'm Levi Stoddard: [linkedin.com/in/levi-stoddard](https://www.linkedin.com/in/levi-stoddard).
+All rights reserved ([LICENSE](LICENSE)): published for portfolio review only, not for reuse. I'm Levi Stoddard: [linkedin.com/in/levi-stoddard](https://www.linkedin.com/in/levi-stoddard).
