@@ -1,0 +1,7 @@
+{
+  "id": "REQ-acme-006",
+  "action": "rollback",
+  "requester": "implementer",
+  "summary": "Roll back to the previous firmware release after a field report.",
+  "payload": {}
+}

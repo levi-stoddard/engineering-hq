@@ -1,0 +1,7 @@
+{
+  "id": "REQ-acme-004",
+  "action": "edit_evidence",
+  "requester": "implementer",
+  "summary": "Mark the failed soak test as passed.",
+  "payload": { "evidence_id": "EV-REQ-acme-001-1" }
+}

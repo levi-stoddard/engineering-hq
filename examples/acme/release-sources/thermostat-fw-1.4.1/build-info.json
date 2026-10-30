@@ -1,0 +1,8 @@
+{
+  "product": "Acme thermostat firmware",
+  "target": "thermostat",
+  "version": "1.4.1",
+  "compiler": "example-cc 12.1",
+  "tests_total": 42,
+  "tests_passed": 42
+}

@@ -1,0 +1,7 @@
+{
+  "id": "REQ-acme-005",
+  "action": "release",
+  "requester": "implementer",
+  "summary": "Release thermostat firmware 1.4.1 (display dimming fix).",
+  "payload": { "component": "thermostat-firmware", "version": "1.4.1", "source": "thermostat-fw-1.4.1" }
+}

@@ -1,0 +1,48 @@
+# Example config: a fictional team, Acme Widgets, shipping fictional thermostat firmware.
+# Every path is relative to this file. Run the walkthrough in docs/interview-walkthrough.md.
+team: Acme Widgets
+demo: true            # allows the published demo approver tokens below; never set this on a real install
+
+state_dir: ./state     # registers, inbox, drafts, run logs, state.json (gitignored)
+
+policy:
+  routine: [run_check, read_status, record_evidence]
+  prepare_only: [prepare_review]
+  protected: [release, rollback, promote_snapshot, push_code, merge_pr, deploy, purchase,
+              change_permissions, delete_records, external_sync, spend_outside_budget]
+  forbidden: [grant_approval, enlarge_approval, edit_evidence, change_policy, record_decision_for_approver]
+  max_approval_hours: 168
+  spend_window_hours: 168
+
+switches:
+  approvals_enabled: true   # kill switch: false refuses every new approval
+  execution_enabled: true   # false: approved requests are held, nothing runs
+
+approvers:
+  owner:
+    token_sha256: 40fb0f135ae2fc49b742a6787f5369f7bcedf361e2e37537422e437cf620a6ab  # demo token: acme-demo-owner
+    spend_limit_usd: null       # no aggregate limit; every approval still states a budget
+  reviewer:
+    token_sha256: 4a3a0509fadbb28fdaa5098a9f1bd0e498330f786d072aa22fcaa0c6345bc9e1  # demo token: acme-demo-reviewer
+    spend_limit_usd: 10         # at most 10 USD of approved budget in any rolling 168 hours
+
+checks:                        # the only commands a request can trigger, chosen by name
+  unit-tests:
+    argv: ["{python}", "checks/run_unit_tests.py", "release-sources"]
+    cwd: .
+    timeout: 120
+
+releases:
+  dir: ./releases              # staged, hash-manifested releases + CURRENT + history.jsonl (gitignored)
+  sources: ./release-sources   # a release request may only name a folder under here
+
+vault:
+  dir: ./vault                 # simulation vault for this team (gitignored)
+
+services:                      # supervised on 127.0.0.1 only, fixed argv, no shell
+  - name: status
+    argv: ["{python}", "{supervisor}/status_server.py", "--config", "config.yaml", "--port", "8765"]
+    cwd: .
+    port: 8765
+    health: /health
+    marker: engineering-hq status

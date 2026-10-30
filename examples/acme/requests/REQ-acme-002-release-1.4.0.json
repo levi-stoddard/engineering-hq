@@ -1,0 +1,12 @@
+{
+  "id": "REQ-acme-002",
+  "action": "release",
+  "requester": "implementer",
+  "summary": "Release thermostat firmware 1.4.0 to the update channel.",
+  "payload": {
+    "component": "thermostat-firmware",
+    "version": "1.4.0",
+    "source": "thermostat-fw-1.4.0",
+    "decision_id": "DEC-001"
+  }
+}

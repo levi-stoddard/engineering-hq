@@ -1,0 +1,7 @@
+{
+  "id": "REQ-acme-001",
+  "action": "run_check",
+  "requester": "implementer",
+  "summary": "Run the unit-test check on both firmware builds before anyone decides on a release.",
+  "payload": { "check": "unit-tests" }
+}

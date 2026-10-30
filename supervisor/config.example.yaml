@@ -1,0 +1,49 @@
+# Template for a real install. Copy it next to your state folder, adjust, and set the environment
+# variables it references (see ../.env.example). The supervisor refuses to start while any of them
+# is missing or still a placeholder, and refuses the published demo tokens outside `demo: true`.
+team: Your Team
+demo: false
+
+state_dir: ./state
+
+policy:
+  routine: [run_check, read_status, record_evidence]
+  prepare_only: [prepare_review]
+  protected: [release, rollback, promote_snapshot, push_code, merge_pr, deploy, purchase,
+              change_permissions, delete_records, external_sync, spend_outside_budget]
+  forbidden: [grant_approval, enlarge_approval, edit_evidence, change_policy, record_decision_for_approver]
+  max_approval_hours: 168
+  spend_window_hours: 168
+
+switches:
+  approvals_enabled: true
+  execution_enabled: false   # start with execution off; approved work is held until you turn it on
+
+approvers:                   # role names, not people; each person creates their own token (scripts/new_token.py)
+  owner:
+    token_sha256: ${HQ_OWNER_TOKEN_SHA256}
+    spend_limit_usd: null
+  reviewer:
+    token_sha256: ${HQ_REVIEWER_TOKEN_SHA256}
+    spend_limit_usd: 25
+
+checks:
+  unit-tests:
+    argv: ["{python}", "-m", "pytest", "-q"]
+    cwd: ../your-project
+    timeout: 900
+
+releases:
+  dir: ./releases
+  sources: ./release-sources
+
+vault:
+  dir: ../vault
+
+services:
+  - name: status
+    argv: ["{python}", "{supervisor}/status_server.py", "--config", "config.yaml", "--port", "8765"]
+    cwd: .
+    port: 8765
+    health: /health
+    marker: engineering-hq status

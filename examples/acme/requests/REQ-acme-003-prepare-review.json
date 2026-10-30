@@ -1,0 +1,11 @@
+{
+  "id": "REQ-acme-003",
+  "action": "prepare_review",
+  "requester": "implementer",
+  "summary": "Prepare a review package for the 1.4.1 display fix.",
+  "payload": {
+    "objective": "Display dims after night setback starts",
+    "tests": ["unit-tests"],
+    "remaining_approvals": ["release 1.4.1"]
+  }
+}
