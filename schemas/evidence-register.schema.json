@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/levi-stoddard/engineering-hq/schemas/evidence-register.schema.json",
+  "title": "Evidence register row",
+  "description": "One measured result. Artifacts are hashed when recorded, so later changes to them make the evidence INVALID.",
+  "type": "object",
+  "required": [
+    "kind",
+    "id",
+    "subject",
+    "evidence_type",
+    "result",
+    "recorded_by",
+    "artifacts",
+    "at",
+    "seq",
+    "prev_sha256",
+    "row_sha256"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "evidence"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^EV-[A-Za-z0-9-]{1,60}$"
+    },
+    "subject": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_type": {
+      "type": "string",
+      "examples": [
+        "check_run",
+        "release_activated",
+        "rollback",
+        "review",
+        "measurement"
+      ]
+    },
+    "result": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "NOT_TESTED"
+      ]
+    },
+    "recorded_by": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "command": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "prev_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "row_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

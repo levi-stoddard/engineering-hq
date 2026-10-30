@@ -1,0 +1,25 @@
+{
+  "schema": "engineering-hq.release-manifest.v1",
+  "component": "thermostat-firmware",
+  "version": "1.4.0",
+  "decision_id": "DEC-001",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "44bd9e7588810b2a76b7817c3d4f9f445b162695eb5f3c177fe169c190eb7225",
+      "bytes": 151
+    },
+    {
+      "path": "build-info.json",
+      "sha256": "43f785e80c2669674225d0b99d9949ac35ecf7c91733c181b359bd5aeaf77e91",
+      "bytes": 168
+    },
+    {
+      "path": "firmware.hex",
+      "sha256": "6b5d34d1c3a0e21f9ed6d77b0c57f02473bbf17dfa8605ff0e9c616a443e0ea9",
+      "bytes": 716
+    }
+  ],
+  "tree_sha256": "0f95f22dfe3acc1d2ae90adfe1ddbefd243c273e77eac9195cfae3996c9bb956",
+  "manifest_sha256": "72aa6d853ef54ef6ba411efd13c4f3e9c75f0741c6a518957fddac45bf71a442"
+}

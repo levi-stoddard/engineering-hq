@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/levi-stoddard/engineering-hq/schemas/approval-record.schema.json",
+  "title": "Approvals register row",
+  "description": "An approval is a first-class row: bound to the SHA-256 of the exact request, with a budget, a call limit and an expiry. A withdrawal is a separate row; nothing is edited.",
+  "oneOf": [
+    {
+      "type": "object",
+      "title": "approval",
+      "required": [
+        "kind",
+        "id",
+        "request_id",
+        "request_sha256",
+        "action",
+        "approver",
+        "budget_usd",
+        "max_calls",
+        "expires",
+        "at",
+        "seq",
+        "prev_sha256",
+        "row_sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "approval"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^APR-"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "request_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "action": {
+          "type": "string"
+        },
+        "approver": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+        },
+        "budget_usd": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "max_calls": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "expires": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        "at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        "seq": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "prev_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "row_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "title": "withdrawal",
+      "required": [
+        "kind",
+        "request_id",
+        "by",
+        "reason",
+        "at",
+        "seq",
+        "prev_sha256",
+        "row_sha256"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "withdrawal"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "by": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+        },
+        "seq": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "prev_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "row_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/levi-stoddard/engineering-hq/schemas/approval-request.schema.json",
+  "title": "Request proposed by an agent",
+  "description": "What an implementer or the Slack agent drops into the supervisor inbox. The policy decides whether it runs, waits for an approver, or is refused.",
+  "type": "object",
+  "required": [
+    "id",
+    "action",
+    "requester",
+    "summary"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^REQ-[A-Za-z0-9-]{1,40}$"
+    },
+    "action": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,40}$",
+      "description": "Classified by the policy as routine, prepare_only, protected or forbidden. Unclassified actions are protected."
+    },
+    "requester": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,31}$",
+      "description": "A role, never a person: implementer, slack-agent, orchestrator."
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "payload": {
+      "type": "object",
+      "description": "Action-specific input. A request never supplies a command line; handlers only accept names and versions."
+    }
+  }
+}

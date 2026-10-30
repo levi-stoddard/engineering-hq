@@ -1,0 +1,18 @@
+{
+  "schema": "engineering-hq.supervisor-state.v1",
+  "updated_utc": "2026-10-30T19:50:56Z",
+  "supervisor_pid": 26272,
+  "loopback_only": true,
+  "switches": {
+    "approvals_enabled": true,
+    "execution_enabled": true
+  },
+  "requests": {
+    "done": 4,
+    "draft_written": 1,
+    "refused": 1
+  },
+  "current_release": "1.4.0",
+  "register_problems": [],
+  "services": {}
+}
