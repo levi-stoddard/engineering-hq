@@ -1,0 +1,57 @@
+{
+  "linear": [
+    {
+      "id": "ACME-12",
+      "title": "Night setback schedule for thermostat firmware",
+      "url": "https://linear.example/acme/issue/ACME-12",
+      "updated": "2026-09-30T10:00:00Z",
+      "summary": "Done"
+    },
+    {
+      "id": "ACME-15",
+      "title": "Display does not dim after night setback starts",
+      "url": "https://linear.example/acme/issue/ACME-15",
+      "updated": "2026-10-04T14:20:00Z",
+      "summary": "In Review"
+    },
+    {
+      "id": "ACME-17",
+      "title": "Soak test the 1.4 line for 72 hours",
+      "url": "https://linear.example/acme/issue/ACME-17",
+      "updated": "2026-10-06T08:05:00Z",
+      "summary": "Todo"
+    }
+  ],
+  "github": [
+    {
+      "id": "acme/thermostat-firmware#7",
+      "title": "Dim the display when night setback starts",
+      "url": "https://github.example/acme/thermostat-firmware/pull/7",
+      "updated": "2026-10-04T15:00:00Z",
+      "summary": "pull request, open"
+    },
+    {
+      "id": "acme/thermostat-firmware#5",
+      "title": "Night setback schedule",
+      "url": "https://github.example/acme/thermostat-firmware/pull/5",
+      "updated": "2026-09-29T17:40:00Z",
+      "summary": "pull request, merged"
+    }
+  ],
+  "drive": [
+    {
+      "id": "doc-acme-release-checklist",
+      "title": "Thermostat firmware release checklist",
+      "url": "https://drive.example/acme/release-checklist",
+      "updated": "2026-09-15T09:00:00Z",
+      "summary": "document"
+    },
+    {
+      "id": "doc-acme-test-room",
+      "title": "Reference test room: setup and measurement method",
+      "url": "https://drive.example/acme/test-room",
+      "updated": "2026-08-20T11:30:00Z",
+      "summary": "document"
+    }
+  ]
+}

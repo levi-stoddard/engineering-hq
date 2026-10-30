@@ -1,0 +1,30 @@
+# Runs the Slack agent against real Slack and live read-only connectors.
+# Copy ../.env.example to ../.env and fill it in first; the agent refuses to start on placeholders.
+# For a token-free run use the console transport instead (see the README quickstart).
+services:
+  slack-agent:
+    build:
+      context: ..
+      dockerfile: slack-agent/Dockerfile
+    restart: unless-stopped
+    env_file: ../.env
+    environment:
+      TRANSPORT: slack
+      CONNECTORS: live
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - agent-data:/app/data
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  agent-data:
