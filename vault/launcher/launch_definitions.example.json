@@ -1,0 +1,12 @@
+{
+  "note": "Allowlist: the only entries the vault will restore and run. The command is built from these fields; nothing from a request is executed.",
+  "definitions": [
+    {
+      "id": "SIM-001",
+      "version": "0.1",
+      "entry": "model.py",
+      "port": 8790,
+      "health": { "path": "/health", "marker": "heat-loss model" }
+    }
+  ]
+}

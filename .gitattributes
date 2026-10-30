@@ -1,0 +1,5 @@
+# Keep LF everywhere so hashed files (manifests, registers, example releases) are byte-identical on
+# every machine. PowerShell scripts keep CRLF for Windows PowerShell.
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.hex text eol=lf

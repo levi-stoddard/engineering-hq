@@ -1,0 +1,29 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Runtime state: registers, inbox, logs, releases, backups (never committed)
+state/
+releases/
+backups/
+examples/*/state/
+examples/*/releases/
+examples/*/vault/
+examples/*/backups/
+supervisor/state/
+supervisor/releases/
+
+# Vault contents (the layout is kept with .gitkeep files)
+vault/*/*
+!vault/*/.gitkeep
+!vault/launcher/*
+
+# Tooling
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.log
+coverage/
+.DS_Store
