@@ -1,6 +1,6 @@
 # Engineering HQ
 
-This is the framework my business partner and I ran our engineering through while working remotely. AI coding agents do the implementation, and this layer keeps them accountable. The agents propose; a policy decides what they may do on their own. Anything that ships, spends, deletes or changes permissions waits for one of us to approve it at a terminal. Every result, decision and approval lands in an append-only, hash-chained register. The product it managed is private. This repo is the framework, rebuilt with example data from a fictional team, Acme Widgets, shipping fictional thermostat firmware.
+This is the framework my co-founder and I ran our engineering through while working remotely. AI coding agents do the implementation, and this layer keeps them accountable. The agents propose; a policy decides what they may do on their own. Anything that ships, spends, deletes or changes permissions waits for one of us to approve it at a terminal. Every result, decision and approval lands in an append-only, hash-chained register. The product it managed is private. This repo is the framework, rebuilt with example data from a fictional team, Acme Widgets, shipping fictional thermostat firmware.
 
 ## Architecture
 
