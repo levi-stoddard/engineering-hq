@@ -108,10 +108,22 @@ Real installs start from `supervisor/config.example.yaml` and `.env.example`. Bo
 - **Manifests are reproducible and rollback verifies first.** No timestamps in the hashed part, so the same files always give the same manifest. A rollback target that no longer matches its manifest is refused rather than restored.
 - **Connectors are read-only in code, not just by token scope.** Every live connector goes through one helper that refuses anything but GET (and GraphQL queries for Linear). That's belt and braces if a token turns out to be over-scoped.
 
+## Related repos
+
+The rest of the system, published as portfolio copies with fictional data:
+
+| Repo | What it is |
+|---|---|
+| [agent-hq-gateway](https://github.com/levi-stoddard/agent-hq-gateway) | The service layer this framework came from: an approval gateway with owner-only authorization, a hash-chained audit and an owner console (Node + SQLite) |
+| [agent-hq-dashboard](https://github.com/levi-stoddard/agent-hq-dashboard) | 3D and 2D headquarters view of what each agent is working on and what waits for an owner |
+| [agent-hq-unreal](https://github.com/levi-stoddard/agent-hq-unreal) | A walkable Unreal Engine 5 control room whose stations open the web tools and live status pages (code only) |
+| [agent-status-board](https://github.com/levi-stoddard/agent-status-board) | Read-only status board: validated feed adapters, freshness checks, draft-only owner actions |
+| [forgex-kelqor](https://github.com/levi-stoddard/forgex-kelqor) | A product built this way: fixed-price automation Work Orders with AI missions under cost and approval controls, plus a Windows command center and phone portal |
+
 ## What's not here
 
 - **The product content.** The registers, decisions, evidence, release history and documents belong to the product, and they stay private.
 - **Names and specifics.** Every person, agent persona, ticket, path, host and company detail was removed. The agents appear only as roles (`orchestrator`, `slack-agent`, `implementer`, `approver`), and every example is fictional.
-- **The original service layer.** It ran as an HTTP gateway with a database. Here the same rules live in a Python library and CLI that can be read in one sitting.
+- **The original service layer.** It ran as an HTTP gateway with a database. Here the same rules live in a Python library and CLI that can be read in one sitting; the gateway itself is in [agent-hq-gateway](https://github.com/levi-stoddard/agent-hq-gateway).
 
 All rights reserved ([LICENSE](LICENSE)): published for portfolio review only, not for reuse. I'm Levi Stoddard: [linkedin.com/in/levi-stoddard](https://www.linkedin.com/in/levi-stoddard).
